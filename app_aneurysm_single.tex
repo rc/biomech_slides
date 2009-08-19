@@ -1,0 +1,39 @@
+\begin{frame}
+  \frametitle{Macroscopic Arterial Wall Modeling}
+  \begin{itemize}
+  \item \emph{composite model} of smooth muscle tissue
+    \begin{itemize}
+    \item matrix, elastin, collagen fibres
+    \item $2^{nd}$ Piola-Kirchhoff stress:
+      \begin{equation}
+        \label{eq:2pk}
+        S_{ij} = - J C_{ij}^{-1}p + \phi_m \frac{\partial W^m}{\partial E_{ij}}
+        + \phi_e \tau_{ij}^e + \phi_c \tau_{ij}^c
+      \end{equation}
+    \end{itemize}
+  \item assessing \emph{aneurysms} in abdominal aorta
+    \begin{itemize}
+    \item parametric study: changing aneurysm geometry
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{minipage}{0.28\linewidth}
+      \scriptsize
+      orientation of fibres \\
+      \includegraphics[width=\linewidth]{\figDirMacroArtery/0mesh_fibr_AAA}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+      \scriptsize
+      aneurysm geometry \\
+      \includegraphics[width=0.9\linewidth]{\figDirMacroArtery/AAA_scheme}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.28\linewidth}
+      \scriptsize
+      stress in elastin fibres \\
+      \includegraphics[width=0.8\linewidth]{\figDirMacroArtery/aaa01_2} \\
+      \includegraphics[width=0.8\linewidth]{\figDirMacroArtery/aaa01_3}
+    \end{minipage}
+  \end{center}
+\end{frame}

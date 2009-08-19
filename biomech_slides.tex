@@ -1,0 +1,153 @@
+\documentclass[10pt,t]{beamer}
+
+\usepackage{listings}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+\def\figDir{figures}
+\def\figDirLogos{figures/logos}
+\def\figDirMacroIdent{figures/macro_identification}
+\def\figDirMacroArtery{figures/macro_artery}
+\def\figDirMacroHeart{figures/macro_heart}
+\def\figDirMacroPerfusion{figures/macro_perfusion}
+\def\figDirHomPerfusion{figures/homogenization_perfusion}
+\def\figDirHomBones{figures/homogenization_bones}
+
+\newcommand{\sfepy}{SfePy}
+\newcommand{\isfepy}{\texttt{isfepy}}
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\blue}[1]{{\color{blue}{#1}}}
+\definecolor{lblue}{rgb}{0.0,0.4,1.0}
+\newcommand{\lblue}[1]{{\color{lblue}{#1}}}
+\definecolor{dgreen}{rgb}{0.0,0.4,0.11}
+\newcommand{\dgreen}[1]{{\color{dgreen}{#1}}}
+
+\def \pder#1#2{\frac{\partial #1}{\partial #2}}
+%\newcommand{\dvg}{\mathop{\rm div}}
+\newcommand{\grad}{\mathop{\rm grad}}
+\newcommand{\ul}[1]{\underline{#1}}
+\def\half{{\textstyle{1\over2}}}
+\def\d{{\rm d}}
+
+\newcommand{\bmi}[1]{\textbf{\textit{#1}}}
+\def\sigmabf{\bm{\sigma}}
+\def\ub{{\bmi{u}}}
+\def\nb{{\bmi{n}}}
+\def\Db{{\bmi{D}}}
+\def\gb{{\bmi{g}}}
+\def\Ccal{\mathcal{C}}
+\def\mic{{\rm mic}}
+\newcommand{\pd}{\partial}
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
+\newcommand{\lam}{\lambda}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\vphi}{\varphi}
+\def\phibf{{\mbox{\boldmath$\varphi$\unboldmath}}}
+\def\xibf{{\mbox{\boldmath$\xi$\unboldmath}}}
+\newcommand{\smatrix}[2]{\left#2\begin{array}{#1}}
+\newcommand{\ematrix}[1]{\end{array}\right#1}
+
+%%
+% Beamer related packages & defs.
+\usepackage{multimedia}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\mode<handout>{\beamertemplatesolidbackgroundcolor{black!5}}
+\mode<presentation>
+{
+%  \usetheme{Frankfurt}
+  \useoutertheme[subsection=false]{smoothbars}
+  \setbeamerfont{block title}{size={}}
+  \usefonttheme[onlymath]{serif}
+%  \useinnertheme{rectangles}
+%  \useinnertheme[shadow=true]{rounded}
+  \useinnertheme{rounded}
+%  \useinnertheme{circles}
+%  \useinnertheme{inmargin}
+  \setbeamercovered{transparent}
+  \usecolortheme{seahorse}
+  \usecolortheme{rose}
+%  \beamertemplategridbackground[0.2cm]
+  \beamertemplatetransparentcovereddynamic
+
+  \setbeamertemplate{navigation symbols}{
+%    \insertdocnavigationsymbol
+%    \insertsubsectionnavigationsymbol 
+    \insertbackfindforwardnavigationsymbol
+    \hspace{1mm} \hbox{\normalsize \insertframenumber/\inserttotalframenumber}
+  }
+}
+
+\bibliographystyle{plain}
+
+\input{title_swiss2009.tex}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Macroscopic Models}
+
+\subsection{Soft Tissue Models: Parameter Identification}
+
+\input{app_identification_single.tex}
+
+\subsection{Macroscopic Arterial Wall Modeling}
+
+\input{app_aneurysm_single.tex}
+
+\subsection{Heart Modeling}
+
+\input{app_heart_single.tex}
+
+\subsection{Perfused Muscle Tissue: Heart, Kidneys}
+
+\input{app_macro_perfusion_single.tex}
+
+\section{Multiscale Models}
+
+\subsection{Porous Media: Current Approach}
+
+\input{app_hom_porous_single.tex}
+
+\subsection{Microscopic Stress Recovery: Bones}
+
+\input{app_hom_bones_recovery_single.tex}
+
+\section{Software}
+
+\subsection*{}
+
+\input{sfepy_single.tex}
+
+\section{Conclusion}
+
+\subsection*{}
+
+\nocite{cimrman_et_al_2009:_sfepy}
+\nocite{cimrman_rohan_2007:_modelling_parallel_diffusion}
+\nocite{griso_rohan_2007:_homogenization_diffusion_deformation}
+\nocite{rohan_2006:_modelling_large_deformation}
+\nocite{rohan08:_homog_model_of_bone_poroel}
+\nocite{rohan09:_multis_model_of_fluid_satur}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  {\small The research was financially supported by the Grant Agency of the
+    Czech Republic, project GA\v{C}R 106/09/0740, and the Czech Government
+    project MSM 497751303.}
+
+  \hrulefill
+  \tiny
+  \bibliography{bibliography}
+\end{frame}
+
+\end{document}
